@@ -1,5 +1,6 @@
 """
-Escenario 1 Proyecto (Sencillo) - MOS
+Escenario 1 (Sencillo) - Proyecto MOS
+
 Realizado por:
 Juan Andrés Romero C - 202013449
 Juan Sebastián Alegría - 202011282
@@ -15,7 +16,7 @@ model.P = RangeSet(1, 3)  # Products
 model.L = RangeSet(1, 3)  # Stores
 
 # Products wanted by the buyer
-model.N = Set(within=model.P, initialize=[1,3])
+model.N = Set(within=model.P, initialize=[1, 3])
 
 model.Costs = Param(model.P, model.L, mutable=True)
 model.DeliveryCosts = Param(model.L, mutable=True)

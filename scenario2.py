@@ -1,5 +1,6 @@
 """
-Escenario 2 Proyecto (Complejo) - MOS
+Escenario 2 (Complejo) - Proyecto MOS
+
 Realizado por:
 Juan Andrés Romero C - 202013449
 Juan Sebastián Alegría - 202011282
