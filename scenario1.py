@@ -1,5 +1,5 @@
 """
-Bono Entrega 2 - MOS
+Escenario 1 Proyecto (Sencillo) - MOS
 Realizado por:
 Juan Andrés Romero C - 202013449
 Juan Sebastián Alegría - 202011282
@@ -11,58 +11,32 @@ from pyomo.opt import SolverFactory
 model = ConcreteModel()
 
 # Sets and parameters
-model.P = RangeSet(1, 5)  # Products
-model.L = RangeSet(1, 6)  # Stores
+model.P = RangeSet(1, 3)  # Products
+model.L = RangeSet(1, 3)  # Stores
 
 # Products wanted by the buyer
-model.N = Set(within=model.P, initialize=[1, 2, 3, 4, 5])
+model.N = Set(within=model.P, initialize=[1,3])
 
 model.Costs = Param(model.P, model.L, mutable=True)
 model.DeliveryCosts = Param(model.L, mutable=True)
 
 # Costs of each product in each store
-model.Costs[1, 1] = 18
-model.Costs[1, 2] = 24
-model.Costs[1, 3] = 22
-model.Costs[1, 4] = 28
-model.Costs[1, 5] = 24
-model.Costs[1, 6] = 27
+model.Costs[1, 1] = 7
+model.Costs[1, 2] = 13
+model.Costs[1, 3] = 10
 
-model.Costs[2, 1] = 39
-model.Costs[2, 2] = 45
-model.Costs[2, 3] = 45
-model.Costs[2, 4] = 47
-model.Costs[2, 5] = 42
-model.Costs[2, 6] = 48
+model.Costs[2, 1] = 6
+model.Costs[2, 2] = 4
+model.Costs[2, 3] = 6
 
-model.Costs[3, 1] = 29
-model.Costs[3, 2] = 23
-model.Costs[3, 3] = 23
-model.Costs[3, 4] = 17
-model.Costs[3, 5] = 24
-model.Costs[3, 6] = 20
-
-model.Costs[4, 1] = 48
-model.Costs[4, 2] = 54
-model.Costs[4, 3] = 53
-model.Costs[4, 4] = 57
-model.Costs[4, 5] = 47
-model.Costs[4, 6] = 55
-
-model.Costs[5, 1] = 59
-model.Costs[5, 2] = 44
-model.Costs[5, 3] = 53
-model.Costs[5, 4] = 47
-model.Costs[5, 5] = 59
-model.Costs[5, 6] = 53
+model.Costs[3, 1] = 15
+model.Costs[3, 2] = 10
+model.Costs[3, 3] = 9
 
 # Delivery costs per store
-model.DeliveryCosts[1] = 10
-model.DeliveryCosts[2] = 15
+model.DeliveryCosts[1] = 12
+model.DeliveryCosts[2] = 10
 model.DeliveryCosts[3] = 15
-model.DeliveryCosts[4] = 10
-model.DeliveryCosts[5] = 10
-model.DeliveryCosts[6] = 15
 
 # Variables
 model.x = Var(model.P, model.L, domain=Binary)  # Product selected
