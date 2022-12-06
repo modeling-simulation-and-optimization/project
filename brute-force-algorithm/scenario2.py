@@ -2,6 +2,7 @@ from itertools import product, groupby
 from dataclasses import dataclass
 import time
 
+
 @dataclass
 class Matrix:
     size_x: int
@@ -16,9 +17,9 @@ class Matrix:
         self.matrix[x][y] = value
 
 
-arreglo = [1,2,3,4,5,6]
+arreglo = [1, 2, 3, 4, 5, 6]
 
-store_costs = [10, 15, 15, 10, 10, 15]
+store_delivery_costs = [10, 15, 15, 10, 10, 15]
 selected_products = [1, 2, 3, 4, 5]
 
 product_costs = Matrix(6, 5)
@@ -67,14 +68,13 @@ if len(selected_products) < len(permutations[0]):
 
     permutations.sort()
 
-    permutations = list(k for k,_ in groupby(permutations))
+    permutations = list(k for k, _ in groupby(permutations))
 
 costs = list()
 
 t1 = time.time()
 
 for permutation in permutations:
-
     if (len(selected_products) != len(permutation)):
         for i in range(len(permutation)):
             if i+1 not in selected_products:
@@ -87,7 +87,7 @@ for permutation in permutations:
     stores = list(set(permutation))
     for i in range(len(stores)):
         if stores[i] != 0:
-            total_cost += store_costs[stores[i]-1]
+            total_cost += store_delivery_costs[stores[i]-1]
 
     costs.append(total_cost)
 

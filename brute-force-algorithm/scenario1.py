@@ -2,6 +2,7 @@ from itertools import product
 from dataclasses import dataclass
 import time
 
+
 @dataclass
 class Matrix:
     size_x: int
@@ -16,9 +17,9 @@ class Matrix:
         self.matrix[x][y] = value
 
 
-arreglo = [1,2,3]
+arreglo = [1, 2, 3]
 
-store_costs = [12, 10, 15]
+store_delivery_costs = [12, 10, 15]
 
 selected_products = [1, 3]
 
@@ -57,7 +58,7 @@ for permutation in permutations:
     stores = list(set(permutation))
     for i in range(len(stores)):
         if stores[i] != 0:
-            total_cost += store_costs[stores[i]-1]
+            total_cost += store_delivery_costs[stores[i]-1]
 
     costs.append(total_cost)
 
