@@ -71,7 +71,7 @@ def main(sdc, sp, pc, g_params):
     t2 = time.time()
 
     if ga_instance.best_solution_generation != -1:
-        print(f"Best fitness value reached after {ga_instance.best_solution_generation} generations.\n")
+        print(f"Best fitness value reached after {ga_instance.best_solution_generation} generations.")
 
     solution, solution_fitness, _ = ga_instance.best_solution()
     print(f"Minimum cost found: {abs(solution_fitness)}")
