@@ -35,9 +35,9 @@ def fitness(solution, solution_idx):
     total_cost = 0
 
     for i in range(len(solution)):
-        used_store = solution[i]
-        if used_store != 0 and i+1 in selected_products:
-            total_cost += product_costs.matrix[i][used_store-1]
+        selected_store = solution[i]
+        if selected_store != 0 and i+1 in selected_products:
+            total_cost += product_costs.matrix[i][selected_store-1]
 
     stores = list(set(solution))
     for i in range(len(stores)):

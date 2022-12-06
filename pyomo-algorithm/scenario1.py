@@ -49,8 +49,7 @@ The objective function seeks to minimize the sum of the costs of the chosen prod
 If a store has at least one product chosen, the binary variable Yl will allow us to
 include to the final sum of the shipping cost corresponding to that store.
 """
-model.targetFunc = Objective(expr=sum(sum(
-    model.Costs[j, l]*model.x[j, l] for j in model.P) + model.DeliveryCosts[l] * model.y[l] for l in model.L), sense=minimize)
+model.targetFunc = Objective(expr=sum(sum(model.Costs[j, l]*model.x[j, l] for j in model.P) + model.DeliveryCosts[l] * model.y[l] for l in model.L), sense=minimize)
 
 
 # Constraints

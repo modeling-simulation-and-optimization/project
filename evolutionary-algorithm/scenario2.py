@@ -46,8 +46,6 @@ product_costs.insert(4, 5, 53)
 store_delivery_costs = [10, 15, 15, 10, 10, 15]
 
 # Define num_generations, num_parents_mating, initial_population, random_mutation_min_val, random_mutation_max_val
-genetic_params = [
-    500, 5, [[random.randint(1, 6) for _ in range(5)] for _ in range(5)], 1, 6
-]
+genetic_params = [500, 5, [[random.randint(1, 6) for _ in range(5)] for _ in range(5)], 1, 6]
 
 main(store_delivery_costs, selected_products, product_costs, genetic_params)
